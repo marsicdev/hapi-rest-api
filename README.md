@@ -33,10 +33,8 @@ Uses [yarn](https://yarnpkg.com) over npm
 *   [prettier](https://prettier.io/)
 *   [ESLint](http://eslint.org)
 *   [mocha](https://mochajs.org/)
-*   [istanbul](https://www.npmjs.com/package/istanbul)
 *   [standard](https://github.com/standard/standard)
 *   [sinon](https://www.npmjs.com/package/sinon)
-*   [nock](https://www.npmjs.com/package/nock)
 
 ## Getting Started
 

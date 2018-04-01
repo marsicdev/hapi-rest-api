@@ -1,9 +1,8 @@
 {
     "app": {
         "port": "3030",
-        "name": "hapi-starter-kit",
-        "logLevel": "info",
-        "env": "development"
+        "name": "hapi-rest-api",
+        "logLevel": "info"
     },
     "openWeather": {
         "apiKey": "2b203abc44d124cbe6fe803dd3a9c02e"
