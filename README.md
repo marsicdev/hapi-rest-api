@@ -19,8 +19,8 @@ Uses [yarn](https://yarnpkg.com) over npm
 *   [boom](https://github.com/hapijs/boom)
 *   [config](https://www.npmjs.com/package/config)
 *   [hapi](http://hapijs.com/)
-*   [hapi-pino]()
-*   [http-status]()
+*   [hapi-pino](https://github.com/pinojs/hapi-pino)
+*   [http-status](https://www.npmjs.com/package/http-status)
 *   [lodash](https://lodash.com/)
 *   [joi](https://www.npmjs.com/package/joi)
 *   [bunyan](https://www.npmjs.com/package/bunyan)
@@ -32,9 +32,9 @@ Uses [yarn](https://yarnpkg.com) over npm
 *   [husky](https://www.npmjs.com/package/husky)
 *   [prettier](https://prettier.io/)
 *   [ESLint](http://eslint.org)
-*   [mocha](https://mochajs.org/)
 *   [standard](https://github.com/standard/standard)
 *   [sinon](https://www.npmjs.com/package/sinon)
+*   [jest](https://facebook.github.io/jest/)
 
 ## Getting Started
 
