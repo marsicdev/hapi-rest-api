@@ -9,19 +9,24 @@ const getWeatherByCityName = async (req, h) => {
 
     try {
         const data = await getWeatherByCity(cityName)
-        return h.response({
+        const validResponse = h.response({
             name: data.name,
             coord: data.coord,
             weather: data.weather
         })
+
+        return validResponse
     } catch (error) {
         const errorMessage = `Failed to fetch weather for ${cityName}`
+
         !error.logged && logger.error(error, errorMessage)
 
-        return boomify(error, {
+        const responseErr = boomify(error, {
             statusCode: httpStatus.INTERNAL_SERVER_ERROR,
             message: errorMessage
         })
+
+        return responseErr
     }
 }
 

@@ -1,12 +1,9 @@
-import axios from 'axios'
 import config from 'config'
 import logger from './../lib/utils/logger'
-import { WEATHER_MAP_URL } from '../shared/constants'
+import { apiService } from '../lib/apiService'
 
 const getWeatherByCityName = async cityName => {
     const options = {
-        method: 'get',
-        url: WEATHER_MAP_URL,
         params: {
             q: cityName,
             APPID: config.get('openWeather.apiKey')
@@ -14,7 +11,7 @@ const getWeatherByCityName = async cityName => {
     }
 
     try {
-        const { data } = await axios(options)
+        const { data } = await apiService.get('/weather', options)
         return data
     } catch (error) {
         logger.error(error, `Failed to fetch weather for ${cityName}`)
