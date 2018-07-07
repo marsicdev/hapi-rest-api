@@ -4,7 +4,7 @@ export const pinoPlugin = async server => {
             plugin: require('hapi-pino'),
             options: {
                 prettyPrint: true,
-                logEvents: ['response']
+                logEvents: ['response', 'request']
             }
         }
     ])

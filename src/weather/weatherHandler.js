@@ -1,8 +1,8 @@
 import { boomify } from 'boom'
 import { httpStatus } from 'http-status'
+import logger from './../lib/utils/logger'
 
 import { getWeatherByCity } from './weatherCtrl'
-import logger from './../lib/utils/logger'
 
 const getWeatherByCityName = async (req, h) => {
     const cityName = req.query.cityName

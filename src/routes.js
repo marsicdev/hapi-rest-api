@@ -1,8 +1,8 @@
 import pingRoutes from './ping/pingRoutes'
-import weatherRoutes from './weather/weatherRoutes'
+import userRoutes from './users/userRoutes'
 
 // prettier-ignore
 export default [
     ...pingRoutes,
-    ...weatherRoutes
+    ...userRoutes
 ]

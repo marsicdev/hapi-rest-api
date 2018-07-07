@@ -1,10 +1,10 @@
 import * as pingAction from './pingAction'
 
-const pingRoutes = [
+export const pingRoutes = [
     {
         method: 'GET',
         path: '/ping',
-        handler: async (request, h) => {
+        handler: async (_, h) => {
             const result = await pingAction.exec()
             return h.response(result)
         },

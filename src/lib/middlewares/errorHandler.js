@@ -1,3 +1,5 @@
+import logger from './../utils/logger'
+
 import { Boom } from 'boom'
 import {
     ApplicationError,
@@ -5,7 +7,6 @@ import {
     RecordNotFoundError,
     UnauthorizedError
 } from './../errors'
-import logger from './../utils/logger'
 
 export const errorHandler = server => {
     server.ext('onPreResponse', (request, h) => {
@@ -43,6 +44,6 @@ export const errorHandler = server => {
             boomError.output.payload.data = boomError.data
         }
 
-        return h.response(boomError)
+        return boomError
     })
 }
