@@ -9,7 +9,7 @@ routes.push({
     path: API_PATH + '/users',
     method: 'GET',
     handler: userController.listUsers,
-    config: {
+    options: {
         tags: ['api'],
         validate: userValidations.listUsers
     }
@@ -20,7 +20,7 @@ routes.push({
     path: API_PATH + '/users/{userId}',
     method: 'GET',
     handler: userController.singleUser,
-    config: {
+    options: {
         tags: ['api'],
         validate: userValidations.user
     }
@@ -31,7 +31,7 @@ routes.push({
     path: API_PATH + '/users',
     method: 'POST',
     handler: userController.listUsers,
-    config: {
+    options: {
         tags: ['api', 'user'],
         description: 'Create new user',
         validate: userValidations.createUser

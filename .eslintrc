@@ -1,5 +1,8 @@
 {
-  "extends": ["standard", "plugin:jest/recommended"],
+  "extends": [
+    "standard",
+    "plugin:jest/recommended"
+  ],
   "rules": {
     "semi": [
       "error",
@@ -19,6 +22,7 @@
         "SwitchCase": 1
       }
     ],
+    "space-before-function-paren": "off",
     "no-use-before-define": [
       "error",
       {

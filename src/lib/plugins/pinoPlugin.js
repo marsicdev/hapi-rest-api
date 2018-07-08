@@ -1,4 +1,4 @@
-export const pinoPlugin = async server => {
+export const configurePinoLogger = async server => {
     await server.register([
         {
             plugin: require('hapi-pino'),

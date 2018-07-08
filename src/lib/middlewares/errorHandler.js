@@ -8,7 +8,7 @@ import {
     UnauthorizedError
 } from './../errors'
 
-export const errorHandler = server => {
+export const configureErrorHandler = server => {
     server.ext('onPreResponse', (request, h) => {
         const response = request.response
         if (!response.isBoom) {

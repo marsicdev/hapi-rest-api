@@ -1,8 +1,8 @@
-export const authHandler = (decoded, request, callback) => {
-    // do your checks to see if the person is valid
-    if (decoded.id === 1) {
-        return callback(null, true)
-    } else {
-        return callback(null, false)
+// @ts-check
+export const authHandler = credentials => {
+    // Run any checks here to confirm we want to grant these credentials access
+    return {
+        isValid: true,
+        credentials // request.auth.credentials
     }
 }
