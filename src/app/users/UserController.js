@@ -1,3 +1,4 @@
+// @ts-check
 import Boom from 'boom'
 
 import { userService } from './UserService'
@@ -6,12 +7,13 @@ class UserController {
     async listUsers(req, h) {
         const { sort } = req.query
 
-        try {
-            const usersList = await userService.listUsers(sort)
-            return h.response(usersList).code(200)
-        } catch (e) {
-            return Boom.notFound(e.message)
+        const usersList = await userService.listUsers(sort)
+
+        if (usersList === null) {
+            return Boom.notFound()
         }
+
+        return usersList
     }
 
     async singleUser(req, h) {
@@ -19,7 +21,7 @@ class UserController {
 
         try {
             const user = await userService.singleUser(userId)
-            return h.response(user)
+            return user
         } catch (e) {
             return Boom.notFound(e.message)
         }

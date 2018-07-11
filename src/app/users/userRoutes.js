@@ -1,4 +1,5 @@
-import { API_PATH } from '../shared/constants'
+// @ts-check
+import { API_PATH } from './../../shared/constants'
 import { userValidations } from './userValidations'
 import { userController } from './UserController'
 

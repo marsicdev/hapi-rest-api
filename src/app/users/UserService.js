@@ -1,5 +1,6 @@
-import User from './../models/User'
-import { RecordNotFoundError, ApplicationError } from '../lib/errors'
+// @ts-check
+import User from './../../models/User'
+import { RecordNotFoundError, ApplicationError } from './../../lib/errors'
 
 class UserService {
     async listUsers(sort) {
@@ -26,10 +27,9 @@ class UserService {
 
     async createUser(data) {
         const { username, name, age } = data
-        const userData = { username, name, age }
+        const userData = new User({ username, name, age })
 
         const user = await User.create(userData)
-
         if (!user) {
             throw new ApplicationError('Unable to create user')
         }

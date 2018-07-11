@@ -1,3 +1,4 @@
+// @ts-check
 import config from 'config'
 import routes from './routes'
 import { Server } from 'hapi'

@@ -1,3 +1,4 @@
+// @ts-check
 import * as pingAction from './pingAction'
 
 export const pingRoutes = []
@@ -7,7 +8,7 @@ pingRoutes.push({
     path: '/ping',
     handler: async (_, h) => {
         const result = await pingAction.exec()
-        return h.response(result)
+        return result
     },
     options: {
         auth: false,

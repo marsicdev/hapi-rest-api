@@ -1,6 +1,6 @@
 // @ts-check
 import * as Joi from 'joi'
-import { ValidationError, RecordNotFoundError } from '../lib/errors'
+import { ValidationError, RecordNotFoundError } from './../../lib/errors'
 
 const validator = Joi.object({
     username: Joi.string().required(),

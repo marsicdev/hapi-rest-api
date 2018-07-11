@@ -37,14 +37,12 @@ const startServer = async () => {
         const srv = await server.init()
         await srv.start()
 
-        logger.info(
-            `server started at port: ${config.get('app.port')} with env: ${config.get('app.env')}`
-        )
+        logger.info(`server started: ${config.get('app.port')} with env: ${config.get('app.env')}`)
 
         // Once started, connect to Mongo through Mongoose
         await mongoose.connect(
             MongoDBUrl,
-            {}
+            { useNewUrlParser: true }
         )
         logger.info(`Connected to Mongo server`)
     } catch (error) {

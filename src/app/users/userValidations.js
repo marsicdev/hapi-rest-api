@@ -1,3 +1,4 @@
+// @ts-check
 import joi from 'joi'
 
 export const userValidations = {

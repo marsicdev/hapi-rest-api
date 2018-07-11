@@ -1,23 +1,23 @@
+// @ts-check
 import mongoose, { Schema } from 'mongoose'
+import Comment from './Comment'
 
 const Content = new Schema({
-    videoUrl: {
-        type: String
-    },
+    videoUrl: { type: String },
     imageUrl: { type: String, required: true },
     text: { type: String, required: true }
 })
 
-const PostSchema = new Schema({
+const postSchema = new Schema({
     content: Content,
     type: {
         type: String,
-        enum: ['video', 'detail'],
+        enum: ['video', 'text', 'picture'],
         required: true
     },
-    comments: { type: Array }
+    comments: { type: [Comment] }
 })
 
-const User = mongoose.model('Post', PostSchema, 'posts')
+const Post = mongoose.model('Post', postSchema, 'posts')
 
-export default User
+export default Post

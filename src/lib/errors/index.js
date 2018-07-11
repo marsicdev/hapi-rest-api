@@ -1,3 +1,4 @@
+// @ts-check
 export class BaseError extends Error {
     constructor(message, data) {
         super(message)

@@ -1,6 +1,7 @@
 // @ts-check
+import { issueToken } from './../../lib/utils/jwtService'
+
 import { authController } from './authController'
-import { issueToken } from '../lib/utils/jwtService'
 
 const authRoutes = [
     {
