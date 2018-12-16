@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "axios": "0.18.0",
-        "bcrypt-nodejs": "false0.0.3",
+        "bcrypt": "3.0.0",
         "boom": "7.2.0",
         "bunyan": "1.8.12",
         "config": "1.30.0",

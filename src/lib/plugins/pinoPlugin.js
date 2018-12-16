@@ -3,8 +3,8 @@ export const configurePinoLogger = async server => {
         {
             plugin: require('hapi-pino'),
             options: {
-                prettyPrint: true,
-                logEvents: ['response', 'request']
+                prettyPrint: process.env.NODE_ENV !== 'production',
+                logEvents: ['response', 'request', 'onPostStart', 'onPostStop', 'request-error']
             }
         }
     ])

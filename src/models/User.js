@@ -1,24 +1,46 @@
 // @ts-check
 import mongoose, { Schema } from 'mongoose'
+import bcrypt from 'bcrypt'
 
-const UserSchema = new Schema({
+const userSchema = new Schema({
     _id: Schema.Types.ObjectId,
-    updated: { type: Date, default: Date.now },
-    username: {
+    updated: {
+        type: Date,
+        default: Date.now
+    },
+    email: {
         type: String,
         required: true,
-        index: { unique: true }
+        unique: true
+    },
+    username: {
+        type: String,
+        required: true
     },
     password: String,
     name: {
-        required: true,
-        type: String
-    },
-    age: {
-        type: { type: Date, default: 0 }
+        type: String,
+        required: true
     }
 })
 
-const UserModel = mongoose.model('User', UserSchema, 'users')
+// On save hook, encrypt password
+// Before saving a model
+userSchema.pre('save', async next => {
+    const saltRounds = 10
+    try {
+        const salt = await bcrypt.genSalt(saltRounds)
+        const hash = await bcrypt.hash(this.password, salt)
+        this.password = hash
+        next()
+    } catch (error) {
+        next(error)
+    }
+})
 
-export default UserModel
+userSchema.methods.isValidPassword = candidatePassword => {
+    return bcrypt.compare(candidatePassword, this.password)
+}
+
+const User = mongoose.model('User', userSchema, 'users')
+export default User

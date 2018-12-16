@@ -1,5 +1,7 @@
 // @ts-check
 import * as Joi from 'joi'
+
+import { issueToken } from './../../lib/utils/jwtService'
 import { ValidationError, RecordNotFoundError } from './../../lib/errors'
 
 const validator = Joi.object({
@@ -25,13 +27,23 @@ const checkCredentials = async (username, password) => {
     throw new ValidationError('Username or password invalid.')
 }
 
-const exec = async params => {
-    Joi.attempt(params, validator)
+const login = async ({ payload }, _) => {
+    Joi.attempt(payload, validator)
 
-    const { username, password } = params
+    const { username, password } = payload
+
     const user = await checkCredentials(username, password)
+    const token = issueToken(payload)
+
+    user.token = token
 
     return user
 }
 
-export const authController = { exec, validator }
+const register = async ({ payload }, _) => {
+    return {
+        // token
+    }
+}
+
+export const authController = { login, register }
